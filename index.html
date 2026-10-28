@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Hub | Puzzle Arena</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#">🎮 GAME <span>HUB By Hussain</span></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#games">Games</a>
+      <button id="authBtn" onclick="openAuth()">Sign In</button>
+      <button id="logoutBtn" onclick="logout()" hidden>Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="tag">WELCOME TO THE PUZZLE ARENA</div>
+        <h1>PLAY. THINK.<br><span>WIN.</span></h1>
+        <p>Challenge your brain with five exciting puzzle games. Play, earn points and become a puzzle master!</p>
+        <a class="primary" href="#games">Explore Games →</a>
+      </div>
+      <div class="hero-icon">🧩</div>
+    </section>
+
+    <section class="stats">
+      <div>PLAYER <strong id="playerName">Guest</strong></div>
+      <div>TOTAL SCORE <strong id="score">0</strong></div>
+      <div>AVAILABLE GAMES <strong>05</strong></div>
+    </section>
+
+    <section class="games-section" id="games">
+      <div class="section-title">
+        <h2>Choose Your <span>Challenge</span></h2>
+        <p>Five games. Endless fun.</p>
+      </div>
+
+      <div class="game-grid">
+        <article class="game-card">
+          <div class="game-icon">🔢</div>
+          <small>GAME 01</small>
+          <h3>Number Guess</h3>
+          <p>Find the secret number between 1 and 100.</p>
+          <button onclick="startGame('number')">PLAY NOW →</button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon">🃏</div>
+          <small>GAME 02</small>
+          <h3>Memory Match</h3>
+          <p>Flip the cards and discover matching pairs.</p>
+          <button onclick="startGame('memory')">PLAY NOW →</button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon">➕</div>
+          <small>GAME 03</small>
+          <h3>Math Challenge</h3>
+          <p>Solve random math problems and earn points.</p>
+          <button onclick="startGame('math')">PLAY NOW →</button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon">🔤</div>
+          <small>GAME 04</small>
+          <h3>Word Scramble</h3>
+          <p>Unscramble the letters to discover the word.</p>
+          <button onclick="startGame('word')">PLAY NOW →</button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon">⭕</div>
+          <small>GAME 05</small>
+          <h3>Tic Tac Toe</h3>
+          <p>Challenge the computer in a classic strategy game.</p>
+          <button onclick="startGame('tic')">PLAY NOW →</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="playArea" class="play-area" hidden>
+      <button class="back" onclick="closeGame()">← Back to Games</button>
+      <h2 id="gameTitle"></h2>
+      <p id="gameMessage"></p>
+      <div id="gameContent"></div>
+    </section>
+  </main>
+
+  <div id="authModal" class="modal" hidden>
+    <form class="auth-box" onsubmit="handleAuth(event)">
+      <button type="button" class="close" onclick="closeAuth()">✕</button>
+      <h2 id="authTitle">Welcome Back</h2>
+      <p>Join the Game Hub community</p>
+
+      <input id="username" placeholder="Username" autocomplete="username" required>
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password" minlength="6" required>
+
+      <button class="primary" type="submit" id="submitAuth">Sign In</button>
+      <p id="authError" role="alert"></p>
+      <p>
+        <span id="switchText">Don't have an account?</span>
+        <a href="#" onclick="toggleAuth(event)" id="switchAuth">Sign Up</a>
+      </p>
+    </form>
+  </div>
+
+  <footer>© 2026 GAME HUB. Made for puzzle lovers.</footer>
+</body>
+</html>
